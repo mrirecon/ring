@@ -1,0 +1,8 @@
+# Dimensions
+1 320 15 30 1 1 1 1 1 1 60 1 1 1 1 1 
+# Command
+transpose 2 9 _k3 k 
+# Files
+ >k <_k3
+# Creator
+BART v0.4.03-27-g2972aa3
