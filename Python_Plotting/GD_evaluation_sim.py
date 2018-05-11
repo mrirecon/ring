@@ -63,21 +63,21 @@ t = str(args[0])
 if (t == "FullCirc"):
     title = "Full circle acquisition"
     name = ["DA_Sx_RING.txt", \
-            "DA_Sx_ACadapt.txt", \
+            "DA_Sx_ACadaptive.txt", \
 	    "DA_Sx_Sy_RING.txt", \
-            "DA_Sx_Sy_ACadapt.txt", \
+            "DA_Sx_Sy_ACadaptive.txt", \
 	    "DA_Sx_Sy_Sxy_RING.txt", \
-            "DA_Sx_Sy_Sxy_ACadapt.txt", \
+            "DA_Sx_Sy_Sxy_ACadaptive.txt", \
             "plot.png"]
     legend = True
 elif (t == "HalfCirc"):
     title = "Half circle acquisition"
     name = ["SA_Sx_RING.txt", \
-            "SA_Sx_ACadapt.txt", \
+            "SA_Sx_ACadaptive.txt", \
 	    "SA_Sx_Sy_RING.txt", \
-            "SA_Sx_Sy_ACadapt.txt", \
+            "SA_Sx_Sy_ACadaptive.txt", \
 	    "SA_Sx_Sy_Sxy_RING.txt", \
-            "SA_Sx_Sy_Sxy_ACadapt.txt", \
+            "SA_Sx_Sy_Sxy_ACadaptive.txt", \
             "plot.png"]
     legend = False
 Q0 = [0.3,-0.1,0.2]
