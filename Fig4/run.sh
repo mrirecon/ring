@@ -57,13 +57,15 @@ grid tGDringex_os kex gkex
 bart ones 16 1 $RO $(($SPF*$F)) 1 1 1 1 1 1 1 1 1 1 1 1 1 _ones
 grid tGDringex_os _ones _psf_tGDringex_os
 bart scale 0.013333333333 _psf_tGDringex_os psf_tGDringex_os # scale with inverse of number of spokes
+if [ $i -eq 3 ] || [ $i -eq 15 ] || [ $i -eq 75 ] ; then
 bart nlinv -d5 -m2 -M0.005 -i25 -p psf_tGDringex_os gkex rec_RING$i
+fi
 
 #--- GD AC-Adaptive tool ---
 bart extract 1 1 $RO k_SP_GDest kACadapt
 bart extract 1 1 $RO t_SP_GDest tACadapt
 GD_ACadapt=$(bart estdelay tACadapt kACadapt); echo -e $i "\t" $GD_ACadapt >> ACadapt.txt
-bart traj -x$RO -x$RO -y$(($SPF*$RF))-c -r -G -q$GD_ACadapt -O _tGD_ACadapt0
+bart traj -x$RO -y$(($SPF*$RF)) -c -r -G -q$GD_ACadapt -O _tGD_ACadapt0
 bart reshape $(bart bitmask 2 10) $SPF $RF _tGD_ACadapt0 _tGD_ACadapt
 bart extract 10 17 50 _tGD_ACadapt tGD_ACadapt
 bart extract 10 0 $F tGD_ACadapt _tGD_ACadaptex
@@ -75,7 +77,9 @@ grid tGD_ACadaptex_os kex gkex
 bart ones 16 1 $RO $(($SPF*$F)) 1 1 1 1 1 1 1 1 1 1 1 1 1 _ones
 grid tGD_ACadaptex_os _ones _psf_tGDACadaptex_os
 bart scale 0.013333333333 _psf_tGDACadaptex_os psf_tGDACadaptex_os # scale with inverse of number of spokes
+if [ $i -eq 3 ] || [ $i -eq 15 ] || [ $i -eq 75 ] ; then
 bart nlinv -d5 -m2 -M0.005 -i25 -p psf_tGDACadaptex_os gkex rec_ACadapt$i
+fi
 done
 
 
