@@ -9,3 +9,4 @@ python3 ../../Python_Plotting/figcreator.py --tile "2x1" r_noise0.png r_noiseP.p
 python3 ../../Python_Plotting/figcreator.py --tile "1x3" phan.png _SheppLogan_err.png _SheppLogan_GDest.png _a.png
 python3 ../../Python_Plotting/figcreator.py --fontsize 100 -t"LTh:a)" _a.png a.png
 
+rm *txt phan.png _a*.png r*.png Shepp*png _Shepp*png

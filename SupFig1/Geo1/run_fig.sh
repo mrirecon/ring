@@ -8,3 +8,5 @@ convert Geo1_GDest.png -trim _Geo1_GDest.png # Image Magick!
 python3 ../../Python_Plotting/figcreator.py --tile "2x1" r_noise0.png r_noiseP.png phan.png
 python3 ../../Python_Plotting/figcreator.py --tile "1x3" phan.png _Geo1_err.png _Geo1_GDest.png _b.png
 python3 ../../Python_Plotting/figcreator.py --fontsize 100 -t"LTh:b)" _b.png b.png
+
+rm *txt phan.png _b*.png r*.png Geo*png _Geo*png

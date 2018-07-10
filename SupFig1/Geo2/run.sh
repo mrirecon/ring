@@ -86,6 +86,7 @@ bart resize -c 0 100 1 100 rec_noise$noise r_noise$noise
 cfl2png -z 9 -CV r_noise0 r_noise0
 cfl2png -z 9 -CV r_noise$noise r_noiseP
 
+rm _*{cfl,hdr} empty*{cfl,hdr} k*{cfl,hdr} noise*{cfl,hdr} rec*{cfl,hdr} t*{cfl,hdr}
 
 
 
