@@ -89,4 +89,4 @@ for i in range(0,no_sp):
 a.grid()
 a.set_aspect('equal')
 a.axis([-2.5, 2.5, -2.5, 2.5])
-fig.savefig(str(args[-1]))
+fig.savefig(str(args[-1]), dpi = 600)
