@@ -1,15 +1,6 @@
 #!/usr/bin/env bash
 set -e
 
-#--- BART ---
-vBART=~/Programs/BART/bart_PUB-RING
-cd $vBART
-source startup.sh
-bartinfo=$(git rev-parse --abbrev-ref HEAD)
-cd -
-echo $bartinfo > bart.info
-bart version >> bart.info
-
 #--- Config ---
 RO=320
 SP=1
@@ -70,7 +61,7 @@ bart rss 8 _tmp rec_ACadapt_SPGDest$SP_GDest
 done
 
 
-
+rm t*cfl t*hdr _*cfl _*hdr kA*cfl kA*hdr kex*cfl kex*hdr k_*cfl k_*hdr
 
 
 

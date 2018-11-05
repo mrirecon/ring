@@ -14,7 +14,7 @@ done
 
 t="RING"
 for i in ${SP[*]}; do
-	if [[ $i == "${SP[1]}" ]]; then
+	if [[ $i == "${SP[0]}" ]]; then
 	python3 ../Python_Plotting/figcreator.py -t"BCh:Nₛₚ=${i}, LCv:RING" _rec_${t}${i}.png _ltmp${i}.png
 	else
 	python3 ../Python_Plotting/figcreator.py -t"BCh:Nₛₚ=${i}" _rec_${t}${i}.png _ltmp${i}.png
@@ -24,7 +24,7 @@ python3 ../Python_Plotting/figcreator.py --tile "1x3" $(for i in ${SP[*]}; do ec
 
 t="ACadapt"
 for i in ${SP[*]}; do
-	if [[ $i == "${SP[1]}" ]]; then
+	if [[ $i == "${SP[0]}" ]]; then
 	python3 ../Python_Plotting/figcreator.py -t"LCv:AC-Adaptive" _rec_${t}${i}.png _tmp${i}.png
 	else
 	cp _rec_${t}${i}.png _tmp${i}.png

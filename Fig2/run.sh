@@ -2,19 +2,6 @@
 set -e
 
 
-#--- BART ---
-vBART=~/Programs/BART/bart_PUB-RING
-cd $vBART
-source startup.sh
-bartinfo=$(git rev-parse --abbrev-ref HEAD)
-cd -
-echo $bartinfo > bart.info
-bart version >> bart.info
-
-
-#--- BART ---
-BART=~/Programs/BART/bart_dev2
-
 #--- Double Angle Sx != Sy != Sxy ---
 RO=128
 GD=0.3:-0.1:0.2
@@ -137,4 +124,4 @@ bart extract 1 1 $RO tnom tnom1
 echo -e $SP "\t" $(bart estdelay tnom1 kGD1) >> SA_Sx_ACadaptive.txt
 done
 
-
+rm k*cfl  k*hdr t*cfl t*hdr

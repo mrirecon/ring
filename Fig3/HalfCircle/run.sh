@@ -60,3 +60,5 @@ if [ $i -eq 3 ] || [ $i -eq 15 ] || [ $i -eq 159 ] ; then
 bart nlinv -d5 -p psf_tGDACadapt_SP_reco gk_SP_reco rec_ACadapt$i
 fi
 done
+
+rm t*cfl t*hdr _*cfl _*hdr psf*cfl psf*hdr gk*cfl gk*hdr kA*cfl kA*hdr k_*cfl k_*hdr

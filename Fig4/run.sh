@@ -83,6 +83,7 @@ fi
 done
 
 
+rm t*cfl t*hdr _*cfl _*hdr psf*cfl psf*hdr gkex*cfl gkex*hdr kA*cfl kA*hdr k_*cfl k_*hdr kex*cfl kex*hdr
 
 
 

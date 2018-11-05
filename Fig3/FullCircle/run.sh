@@ -67,3 +67,4 @@ done
 
 
 
+rm t*cfl t*hdr _*cfl _*hdr psf*cfl psf*hdr gk*cfl gk*hdr kA*cfl kA*hdr k_*cfl k_*hdr

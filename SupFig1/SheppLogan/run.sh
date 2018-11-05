@@ -1,15 +1,6 @@
 #!/usr/bin/env bash
 set -e
 
-#--- BART ---
-vBART=~/Programs/BART/bart_UMGdevel
-cd $vBART
-source startup.sh
-bartinfo=$(git rev-parse --abbrev-ref HEAD)
-cd -
-echo $bartinfo > bart.info
-bart version >> bart.info
-
 # Noise and kspace energies
 cd noise
 bash run_noiseCalc.sh
