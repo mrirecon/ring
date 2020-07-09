@@ -7,6 +7,10 @@ if [ ! -e $TOOLBOX_PATH/bart ] ; then
 fi
 export PATH=$TOOLBOX_PATH:$PATH
 
+NONCART_FLAG=""
+if bart version -t v0.6.00 ; then
+        NONCART_FLAG="-n"
+fi
 
 #--- Gridding ---
 grid()
@@ -48,7 +52,7 @@ bart ones 16 1 $RO $SP_reco 1 1 1 1 1 1 1 1 1 1 1 1 1 _ones
 grid tGDring_SP_reco_os _ones _psf_tGDring_SP_reco
 bart scale 0.025641025641 _psf_tGDring_SP_reco psf_tGDring_SP_reco # scale with inverse of number of spokes
 if [ $i -eq 3 ] || [ $i -eq 15 ] || [ $i -eq 159 ] ; then
-bart nlinv -d5 -p psf_tGDring_SP_reco gk_SP_reco rec_RING$i
+bart nlinv $NONCART_FLAG -d5 -p psf_tGDring_SP_reco gk_SP_reco rec_RING$i
 fi
 
 
@@ -65,7 +69,7 @@ bart ones 16 1 $RO $SP_reco 1 1 1 1 1 1 1 1 1 1 1 1 1 _ones
 grid tGDACadapt_SP_reco_os _ones _psf_tGDACadapt_SP_reco
 bart scale 0.025641025641 _psf_tGDACadapt_SP_reco psf_tGDACadapt_SP_reco # scale with inverse of number of spokes
 if [ $i -eq 3 ] || [ $i -eq 15 ] || [ $i -eq 159 ] ; then
-bart nlinv -d5 -p psf_tGDACadapt_SP_reco gk_SP_reco rec_ACadapt$i
+bart nlinv $NONCART_FLAG -d5 -p psf_tGDACadapt_SP_reco gk_SP_reco rec_ACadapt$i
 fi
 done
 

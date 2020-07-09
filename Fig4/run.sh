@@ -7,6 +7,10 @@ if [ ! -e $TOOLBOX_PATH/bart ] ; then
 fi
 export PATH=$TOOLBOX_PATH:$PATH
 
+NONCART_FLAG=""
+if bart version -t v0.6.00 ; then
+        NONCART_FLAG="-n"
+fi
 
 #--- Gridding ---
 grid()
@@ -65,7 +69,7 @@ bart ones 16 1 $RO $(($SPF*$F)) 1 1 1 1 1 1 1 1 1 1 1 1 1 _ones
 grid tGDringex_os _ones _psf_tGDringex_os
 bart scale 0.013333333333 _psf_tGDringex_os psf_tGDringex_os # scale with inverse of number of spokes
 if [ $i -eq 3 ] || [ $i -eq 15 ] || [ $i -eq 75 ] ; then
-bart nlinv -d5 -m2 -M0.005 -i25 -p psf_tGDringex_os gkex rec_RING$i
+bart nlinv $NONCART_FLAG -d5 -m2 -M0.005 -i25 -p psf_tGDringex_os gkex rec_RING$i
 fi
 
 #--- GD AC-Adaptive tool ---
@@ -85,7 +89,7 @@ bart ones 16 1 $RO $(($SPF*$F)) 1 1 1 1 1 1 1 1 1 1 1 1 1 _ones
 grid tGD_ACadaptex_os _ones _psf_tGDACadaptex_os
 bart scale 0.013333333333 _psf_tGDACadaptex_os psf_tGDACadaptex_os # scale with inverse of number of spokes
 if [ $i -eq 3 ] || [ $i -eq 15 ] || [ $i -eq 75 ] ; then
-bart nlinv -d5 -m2 -M0.005 -i25 -p psf_tGDACadaptex_os gkex rec_ACadapt$i
+bart nlinv $NONCART_FLAG -d5 -m2 -M0.005 -i25 -p psf_tGDACadaptex_os gkex rec_ACadapt$i
 fi
 done
 
