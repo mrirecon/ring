@@ -7,6 +7,9 @@ if [ ! -e $TOOLBOX_PATH/bart ] ; then
 fi
 export PATH=$TOOLBOX_PATH:$PATH
 
+export BART_COMPAT_VERSION="v0.5.00"
+
+
 
 #--- Config ---
 RO=320
@@ -48,7 +51,7 @@ bart extract 10 0 $F tGDring _tGDringex
 bart reshape $(bart bitmask 2 10) $(($F * $SPF)) 1 _tGDringex tGDringex
 
 # Gridding
-bart nufft -i tGDringex kex _tmp
+bart nufft -d320:320:1 -i tGDringex kex _tmp
 bart rss 8 _tmp rec_RING_SPGDest$SP_GDest
 
 
@@ -63,7 +66,7 @@ bart extract 10 0 $F tGD_ACadapt _tGD_ACadaptex
 bart reshape $(bart bitmask 2 10) $(($F * $SPF)) 1 _tGD_ACadaptex tGD_ACadaptex
 
 # Gridding
-bart nufft -i tGD_ACadaptex kex _tmp
+bart nufft -d320:320:1 -i tGD_ACadaptex kex _tmp
 bart rss 8 _tmp rec_ACadapt_SPGDest$SP_GDest
 done
 

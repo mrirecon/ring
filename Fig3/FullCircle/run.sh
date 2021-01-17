@@ -7,6 +7,9 @@ if [ ! -e $TOOLBOX_PATH/bart ] ; then
 fi
 export PATH=$TOOLBOX_PATH:$PATH
 
+export BART_COMPAT_VERSION="v0.5.00"
+
+
 NONCART_FLAG=""
 if bart version -t v0.6.00 ; then
         NONCART_FLAG="-n"

@@ -7,6 +7,9 @@ if [ ! -e $TOOLBOX_PATH/bart ] ; then
 fi
 export PATH=$TOOLBOX_PATH:$PATH
 
+export BART_COMPAT_VERSION="v0.5.00"
+
+
 
 #--- Config ---
 RO=320
@@ -31,7 +34,7 @@ bart extract 2 0 $SP_GDest t t_SP_GDest
 GDring=$(bart estdelay -R t_SP_GDest k_SP_GDest); echo -e $i "\t" $GDring >> RING.txt
 bart traj -x$RO -y$(($SP * $FR)) -r -G -c -O -q$GDring _tGDring
 bart extract 2 0 $SP_reco _tGDring tGDring_SP_reco
-bart nufft -i tGDring_SP_reco k_SP_reco _tmp
+bart nufft -i -d320:320:1 tGDring_SP_reco k_SP_reco _tmp
 bart rss 8 _tmp rec_RING_GDsp${i}_RECsp${SP_reco}
 
 #--- GD AC-Adaptive ---
@@ -40,7 +43,7 @@ bart extract 1 1 $RO t_SP_GDest tACadapt
 GDACadapt=$(bart estdelay tACadapt kACadapt); echo -e $i "\t" $GDACadapt >> ACadapt.txt
 bart traj -x$RO -y$(($SP * $FR)) -r -G -c -O -q$GDACadapt _tGDACadapt
 bart extract 2 0 $SP_reco _tGDACadapt tGDACadapt_SP_reco
-bart nufft -i tGDACadapt_SP_reco k_SP_reco _tmp
+bart nufft -i -d320:320:1 tGDACadapt_SP_reco k_SP_reco _tmp
 bart rss 8 _tmp rec_ACadapt_GDsp${i}_RECsp${SP_reco}
 done
 done
