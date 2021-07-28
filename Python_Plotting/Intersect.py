@@ -13,6 +13,12 @@ from optparse import OptionParser
 parser = OptionParser(description="Calculate error for intersection points.", usage="%prog [-options] <dst>")
 parser.add_option("-S", dest="S",
                  help="S values: Sx:Sy:Sxy. (Default: %default)", default="0.3:-0.1:0.2")
+parser.add_option("-C", dest="C",
+                 help="Coil", default=0)
+parser.add_option("-P", dest="P",
+                 help="Number of Spokes", default=0)
+parser.add_option("-N", dest="N",
+                 help="noise", default=0)
 (options, args) = parser.parse_args()
 S = str(options.S)
 Sx,Sy,Sxy = [float(k) for k in S.split(":")]
@@ -34,8 +40,9 @@ def offset(Sx, Sy, Sxy, phi0, phi1):
     return (1./ ((n2(phi0) * n1(phi1) / n2(phi1)) - n1(phi0))) * ( Sx * N1(phi0, phi1) + Sxy * N2(phi0, phi1) - n1(phi1)/n2(phi1) * (Sxy * N1(phi0, phi1) + Sy * N2(phi0, phi1))) 
     
 #%%
-p = np.loadtxt("projangle.txt") # from >bart estdelay tool
-d = np.loadtxt("offset.txt") # from >bart estdelay tool
+suff="_C{!s}_SP{!s}_N{!s}".format(options.C, options.P, options.N)
+p = np.loadtxt("projangle{}.txt".format(suff)) # from >bart estdelay tool
+d = np.loadtxt("offset{}.txt".format(suff)) # from >bart estdelay tool
 l = d.shape[0]
 padfactor = 100
 
