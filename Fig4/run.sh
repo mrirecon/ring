@@ -6,7 +6,7 @@ if [ ! -e $TOOLBOX_PATH/bart ] ; then
         exit 1
 fi
 export PATH=$TOOLBOX_PATH:$PATH
-export BART_COMPAT_VERSION="v0.5.00"
+export BART_COMPAT_VERSION="v0.4.00"
 
 
 NONCART_FLAG=""
@@ -99,11 +99,3 @@ done
 
 
 rm t*cfl t*hdr _*cfl _*hdr psf*cfl psf*hdr gkex*cfl gkex*hdr kA*cfl kA*hdr k_*cfl k_*hdr kex*cfl kex*hdr
-
-
-
-
-
-
-
-

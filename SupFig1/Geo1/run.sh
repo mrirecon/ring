@@ -7,7 +7,7 @@ if [ ! -e $TOOLBOX_PATH/bart ] ; then
 fi
 export PATH=$TOOLBOX_PATH:$PATH
 
-export BART_COMPAT_VERSION="v0.5.00"
+export BART_COMPAT_VERSION="v0.4.00"
 
 
 source opts.sh
