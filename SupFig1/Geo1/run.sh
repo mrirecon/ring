@@ -56,7 +56,7 @@ for c in {1..8}; do
 
 		noise_ratio=$(sed -n ${count}p noise/noise_ratio_C${c}.txt)
 
-		echo $(echo -e $noise_ratio"\t"; bart estdelay -R t kGDn${noise}) >> GDest_C${c}_SP${SP}.txt
+		echo $(echo -e $noise_ratio"\t"; DEBUG_LEVEL=0 bart estdelay -R t kGDn${noise}) >> GDest_C${c}_SP${SP}.txt
 
 		mv projangle.txt projangle_C${c}_SP${SP}_N${noise}.txt
 		mv offset.txt offset_C${c}_SP${SP}_N${noise}.txt

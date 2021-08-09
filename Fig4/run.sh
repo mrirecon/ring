@@ -57,7 +57,7 @@ bart extract 2 0 $SP_GDest kex k_SP_GDest
 bart extract 2 0 $SP_GDest tex t_SP_GDest
 
 #--- GD RING tool ---
-GDring=$(bart estdelay -R t_SP_GDest k_SP_GDest); echo -e $i "\t" $GDring >> RING.txt
+GDring=$(DEBUG_LEVEL=0 bart estdelay -R t_SP_GDest k_SP_GDest); echo -e $i "\t" $GDring >> RING.txt
 bart traj -x$RO -y$(($SPF*$RF)) -c -r -G -q$GDring -O _tGDring0
 bart reshape $(bart bitmask 2 10) $SPF $RF _tGDring0 _tGDring
 bart extract 10 17 50 _tGDring tGDring
@@ -78,7 +78,7 @@ fi
 #--- GD AC-Adaptive tool ---
 bart extract 1 1 $RO k_SP_GDest kACadapt
 bart extract 1 1 $RO t_SP_GDest tACadapt
-GD_ACadapt=$(bart estdelay tACadapt kACadapt); echo -e $i "\t" $GD_ACadapt >> ACadapt.txt
+GD_ACadapt=$(DEBUG_LEVEL=0 bart estdelay tACadapt kACadapt); echo -e $i "\t" $GD_ACadapt >> ACadapt.txt
 bart traj -x$RO -y$(($SPF*$RF)) -c -r -G -q$GD_ACadapt -O _tGD_ACadapt0
 bart reshape $(bart bitmask 2 10) $SPF $RF _tGD_ACadapt0 _tGD_ACadapt
 bart extract 10 17 50 _tGD_ACadapt tGD_ACadapt

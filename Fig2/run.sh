@@ -20,12 +20,12 @@ bart traj -x$RO -y$SP -r -G -q$GD -c -O tGD # parallel + orthogonal shift
 bart scale 0.5 tGD tGDov # increase FOV
 bart phantom -k -s8 -t tGDov kGD
 # RING method
-echo -e $SP "\t" $(bart estdelay -R tnom kGD) >> DA_Sx_Sy_Sxy_RING.txt
+echo -e $SP "\t" $(DEBUG_LEVEL=0 bart estdelay -R tnom kGD) >> DA_Sx_Sy_Sxy_RING.txt
 
 # AC-Adaptive method
 bart extract 1 1 $RO kGD kGD1
 bart extract 1 1 $RO tnom tnom1
-echo -e $SP "\t" $(bart estdelay tnom1 kGD1) >> DA_Sx_Sy_Sxy_ACadaptive.txt
+echo -e $SP "\t" $(DEBUG_LEVEL=0 bart estdelay tnom1 kGD1) >> DA_Sx_Sy_Sxy_ACadaptive.txt
 done
 
 #--- Single Angle Sx != Sy != Sxy ---
@@ -40,12 +40,12 @@ bart traj -x$RO -y$SP -r -H -q$GD -c -O tGD # parallel + orthogonal shift
 bart scale 0.5 tGD tGDov
 bart phantom -k -s8 -t tGDov kGD
 # RING method
-echo -e $SP "\t" $(bart estdelay -R tnom kGD) >> SA_Sx_Sy_Sxy_RING.txt
+echo -e $SP "\t" $(DEBUG_LEVEL=0 bart estdelay -R tnom kGD) >> SA_Sx_Sy_Sxy_RING.txt
 
 # AC-Adaptive method
 bart extract 1 1 $RO kGD kGD1
 bart extract 1 1 $RO tnom tnom1
-echo -e $SP "\t" $(bart estdelay tnom1 kGD1) >> SA_Sx_Sy_Sxy_ACadaptive.txt
+echo -e $SP "\t" $(DEBUG_LEVEL=0 bart estdelay tnom1 kGD1) >> SA_Sx_Sy_Sxy_ACadaptive.txt
 done
 
 
@@ -62,12 +62,12 @@ bart traj -x$RO -y$SP -r -G -q$GD -c -O tGD # parallel + orthogonal shift
 bart scale 0.5 tGD tGDov
 bart phantom -k -s8 -t tGDov kGD
 # RING method
-echo -e $SP "\t" $(bart estdelay -R tnom kGD) >> DA_Sx_Sy_RING.txt
+echo -e $SP "\t" $(DEBUG_LEVEL=0 bart estdelay -R tnom kGD) >> DA_Sx_Sy_RING.txt
 
 # AC-Adaptive method
 bart extract 1 1 $RO kGD kGD1
 bart extract 1 1 $RO tnom tnom1
-echo -e $SP "\t" $(bart estdelay tnom1 kGD1) >> DA_Sx_Sy_ACadaptive.txt
+echo -e $SP "\t" $(DEBUG_LEVEL=0 bart estdelay tnom1 kGD1) >> DA_Sx_Sy_ACadaptive.txt
 done
 
 #--- Single Angle Sx != Sy, Sxy=0 ---
@@ -82,12 +82,12 @@ bart traj -x$RO -y$SP -r -H -q$GD -c -O tGD # parallel + orthogonal shift
 bart scale 0.5 tGD tGDov
 bart phantom -k -s8 -t tGDov kGD
 # RING method
-echo -e $SP "\t" $(bart estdelay -R tnom kGD) >> SA_Sx_Sy_RING.txt
+echo -e $SP "\t" $(DEBUG_LEVEL=0 bart estdelay -R tnom kGD) >> SA_Sx_Sy_RING.txt
 
 # AC-Adaptive method
 bart extract 1 1 $RO kGD kGD1
 bart extract 1 1 $RO tnom tnom1
-echo -e $SP "\t" $(bart estdelay tnom1 kGD1) >> SA_Sx_Sy_ACadaptive.txt
+echo -e $SP "\t" $(DEBUG_LEVEL=0 bart estdelay tnom1 kGD1) >> SA_Sx_Sy_ACadaptive.txt
 done
 
 #--- Double Angle Sx == Sy, Sxy=0 ---
@@ -102,12 +102,12 @@ bart traj -x$RO -y$SP -r -G -q$GD -c -O tGD # parallel + orthogonal shift
 bart scale 0.5 tGD tGDov
 bart phantom -k -s8 -t tGDov kGD
 # RING method
-echo -e $SP "\t" $(bart estdelay -R tnom kGD) >> DA_Sx_RING.txt
+echo -e $SP "\t" $(DEBUG_LEVEL=0 bart estdelay -R tnom kGD) >> DA_Sx_RING.txt
 
 # AC-Adaptive method
 bart extract 1 1 $RO kGD kGD1
 bart extract 1 1 $RO tnom tnom1
-echo -e $SP "\t" $(bart estdelay tnom1 kGD1) >> DA_Sx_ACadaptive.txt
+echo -e $SP "\t" $(DEBUG_LEVEL=0 bart estdelay tnom1 kGD1) >> DA_Sx_ACadaptive.txt
 done
 
 #--- Single Angle Sx != Sy, Sxy=0 ---
@@ -122,12 +122,12 @@ bart traj -x$RO -y$SP -r -H -q$GD -c -O tGD # parallel + orthogonal shift
 bart scale 0.5 tGD tGDov
 bart phantom -k -s8 -t tGDov kGD
 # RING method
-echo -e $SP "\t" $(bart estdelay -R tnom kGD) >> SA_Sx_RING.txt
+echo -e $SP "\t" $(DEBUG_LEVEL=0 bart estdelay -R tnom kGD) >> SA_Sx_RING.txt
 
 # AC-Adaptive method
 bart extract 1 1 $RO kGD kGD1
 bart extract 1 1 $RO tnom tnom1
-echo -e $SP "\t" $(bart estdelay tnom1 kGD1) >> SA_Sx_ACadaptive.txt
+echo -e $SP "\t" $(DEBUG_LEVEL=0 bart estdelay tnom1 kGD1) >> SA_Sx_ACadaptive.txt
 done
 
 rm k*cfl  k*hdr t*cfl t*hdr

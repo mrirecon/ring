@@ -36,6 +36,9 @@ SP_reco=39
 bart extract 2 0 $SP_reco k k_SP_reco
 bart extract 2 0 $SP_reco t t_SP_reco
 
+truncate -s0 RING.txt
+truncate -s0 ACadapt.txt
+
 for (( i=3; i<=$FR; i++ )); do
 #--- Extract SP_GDest spokes ---
 SP_GDest=$i
@@ -43,7 +46,7 @@ bart extract 2 0 $SP_GDest k k_SP_GDest
 bart extract 2 0 $SP_GDest t t_SP_GDest
 
 #--- GD RING ---
-GDring=$(bart estdelay -R t_SP_GDest k_SP_GDest); echo -e $i "\t" $GDring >> RING.txt
+GDring=$(DEBUG_LEVEL=0 bart estdelay -R t_SP_GDest k_SP_GDest); echo -e $i "\t" $GDring >> RING.txt
 bart traj -x$RO -y$(($SP * $FR)) -r -H -c -O -q$GDring _tGDring
 bart extract 2 0 $SP_reco _tGDring tGDring_SP_reco
 # Gridding
@@ -61,7 +64,7 @@ fi
 #--- GD AC-Adaptive ---
 bart extract 1 1 $RO k_SP_GDest kACadapt
 bart extract 1 1 $RO t_SP_GDest tACadapt
-GDACadapt=$(bart estdelay tACadapt kACadapt); echo -e $i "\t" $GDACadapt >> ACadapt.txt
+GDACadapt=$(DEBUG_LEVEL=0 bart estdelay tACadapt kACadapt); echo -e $i "\t" $GDACadapt >> ACadapt.txt
 bart traj -x$RO -y$(($SP * $FR)) -r -H -c -O -q$GDACadapt _tGDACadapt
 bart extract 2 0 $SP_reco _tGDACadapt tGDACadapt_SP_reco
 # Gridding
