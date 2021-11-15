@@ -6,17 +6,9 @@ if [ ! -e $TOOLBOX_PATH/bart ] ; then
 	exit 1
 fi
 export PATH=$TOOLBOX_PATH:$PATH
-
 export BART_COMPAT_VERSION="v0.4.00"
 
 source ../opts.sh
-
-if [ ! -e $TOOLBOX_PATH/bart ] ; then
-        echo "\$TOOLBOX_PATH is not set correctly!" >&2
-        exit 1
-fi
-export PATH=$TOOLBOX_PATH:$PATH
-export BART_COMPAT_VERSION="v0.5.00"
 
 #--- Config ---
 RO=160

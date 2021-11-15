@@ -56,10 +56,27 @@ for c in {1..8}; do
 
 		noise_ratio=$(sed -n ${count}p noise/noise_ratio_C${c}.txt)
 
-		echo $(echo -e $noise_ratio"\t"; DEBUG_LEVEL=0 bart estdelay -R t kGDn${noise}) >> GDest_C${c}_SP${SP}.txt
+		ESTOUT=$(DEBUG_LEVEL=0 RING_PAPER=1 bart estdelay -R t kGDn${noise})
 
-		mv projangle.txt projangle_C${c}_SP${SP}_N${noise}.txt
-		mv offset.txt offset_C${c}_SP${SP}_N${noise}.txt
+		set +eu
+		DELAY=$(echo "$ESTOUT" | grep -v -e "offset:" -e "projangle:")
+		PROJ=$(echo "$ESTOUT" | grep "projangle:" | cut -d ":" -f 2 )
+		OFFS=$(echo "$ESTOUT" | grep "offset:" | cut -d ":" -f 2)
+
+		if [ -z "$PROJ" ] || [ -t "$OFFS" ] ; then
+			printf "%s\n" \
+				"Cannot find projection angle and offset in estdelay output." \
+				"You are probably running an older version of BART!" \
+				"Aborting...." >&2
+			exit 1
+		fi
+
+		set -eu
+
+		printf "%s\t%s\n" "${noise_ratio}" "${DELAY}" >> GDest_C${c}_SP${SP}.txt
+
+		echo "$PROJ" > projangle_C${c}_SP${SP}_N${noise}.txt
+		echo "$OFFS" > offset_C${c}_SP${SP}_N${noise}.txt
 		# now called in run_fig.sh:
 		#echo $(echo -e $noise_ratio"\t";  python3 ../../Python_Plotting/Intersect.py -S ${GD}) >> AvgErr_C${c}_SP${SP}.txt
 		count=$(($count + 1))
