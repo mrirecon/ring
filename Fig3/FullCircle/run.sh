@@ -38,6 +38,9 @@ SP_reco=39
 bart extract 2 0 $SP_reco k k_SP_reco
 bart extract 2 0 $SP_reco t t_SP_reco
 
+truncate -s0 RING.txt
+truncate -s0 ACadapt.txt
+
 for (( i=3; i<=$FR; i++ )); do
 #--- Extract SP_GDest spokes ---
 SP_GDest=$i

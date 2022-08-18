@@ -49,7 +49,10 @@ bart transpose 2 10 _kex2 kex
 bart extract 10 $Fstart $(($Fstart + $F)) t _tex
 bart reshape $(bart bitmask 2 10) $(($F * $SPF)) 1 _tex tex
 
+
 # GD corrections
+truncate -s0 RING.txt
+truncate -s0 ACadapt.txt
 for (( i=3; i<=$(($F * $SPF)); i++ )); do
 #--- Extract SP_GDest spokes ---
 SP_GDest=$i

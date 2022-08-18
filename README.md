@@ -11,6 +11,8 @@ The data can be viewed e.g. with 'view'[4] or be loaded into Matlab or Python us
 
 For the plots python [5] is used.
 
+Total runtime for all scripts is approximately 1 hour.
+
 If you need further help to run the scripts, I am happy to help you: sebastian.rosenzweig@med.uni-goettingen.de
 
 November 5, 2018 - Sebastian Rosenzweig

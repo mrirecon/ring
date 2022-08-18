@@ -1,0 +1,10 @@
+./Fig2/run_fig.sh
+./Fig3/FullCircle/run_fig.sh
+./Fig3/HalfCircle/run_fig.sh
+./Fig4/run_fig.sh
+./SupFig1/Geo1/run_fig.sh
+./SupFig1/Geo2/run_fig.sh
+./SupFig1/SheppLogan/run_fig.sh
+./SupFig2/run_fig.sh
+./SupFig3/run_fig.sh
+./Theory/run_fig.sh

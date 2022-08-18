@@ -34,6 +34,9 @@ bart traj -x$RO -y$(($SP * $FR)) -r -G -c t
 
 #--- Extract SP_reco spokes ---
 
+truncate -s0 RING.txt
+truncate -s0 ACadapt.txt
+
 for SP_reco in 39 159; do
 	bart extract 2 0 $SP_reco k k_SP_reco
 	bart extract 2 0 $SP_reco t t_SP_reco
