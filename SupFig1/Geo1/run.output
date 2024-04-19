@@ -1,3 +1,3 @@
-r_noise0		0.05	CFL_NRMSE
-r_noise0.000005		0.05	CFL_NRMSE
-res			0.05	CFL_NRMSE
+r_noise0		0.001	CFL_NRMSE
+r_noise0.000005		0.005	CFL_NRMSE
+res			0.0001	CFL_NRMSE
