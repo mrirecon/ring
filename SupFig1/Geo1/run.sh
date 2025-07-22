@@ -93,7 +93,7 @@ else
 fi
 
 
-bart phantom -t tov $POPTS -s 1 k
+bart phantom -t tov $POPTS k
 bart rss $(bart bitmask 1 2 3) k res
 k_energy=$(echo -e $c "\t" $(bart show -f "$FORMAT" res | sed -e "s/+//" | sed -e "s/+0.000000i//"))
 echo $k_energy >> xk_energy.txt
@@ -110,3 +110,4 @@ bart nufft -i t kn rec_noise$noise
 
 bart resize -c 0 100 1 100 rec_noise0 r_noise0
 bart resize -c 0 100 1 100 rec_noise$noise r_noise$noise
+
