@@ -1,3 +1,7 @@
+**The main repository has moved to: https://gitlab.tugraz.at/ibi/mrirecon/papers/RING**
+**Please check there for updates.**
+
+
 These scripts reproduce the experiments described in the article:
 
 Rosenzweig S, Holme HCM, Uecker M, Simple Auto-Calibrated Gradient Delay Estimation From Few Spokes Using Radial Intersections (RING), Magn. Reson. Med. 2018, 10.1002/mrm.27506. [1,2]
